@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <title>bank</title>
+        <script>
+            function verify()
+            {
+                if(document.getElementById("firstname").value=="" ||document.getElementById("lastname").value=="" ||document.getElementById("email").value=="" ||document.getElementById("username").value=="" ||document.getElementById("passward").value=="" ||document.getElementById("age").value=="" ||document.getElementById("mobile").value=="" )
+                {
+                    window.alert("Kindly Fill All Rows");
+                }
+                else if(vern())
+                {
+                    window.alert("Invalid Name\nKindly avoid spaces for name")
+                }
+                else if(numm())
+                {
+                    window.alert("Kindly fill digits for mobile number and age");
+                }
+                else if(mob())
+                {
+                    window.alert("Invalid Mobile number format");
+                }
+                else if(ag())
+                {
+                    window.alert("Incorrect age");
+                }
+                else if(veru())
+                {
+                    window.alert("Invalid Username Format\nUsername must begin with alphabets and proceed with alphanumerics\n and length must not exceed 15 characters");
+                }
+                else if(pass())
+                {
+                    window.alert("Invalid Password\nPassword should start with alphabets and \nshould contain atleast 8-15 characters");
+                }
+                else if(ema())
+                {
+                    window.alert("Invalid Email Format");
+                }
+                else
+                {
+                    window.location.replace("ex3_1.html");
+                }
+            }
+            function pass()
+            {
+                var pattern=/^[A-Za-z]{1}[\d\s\w]{8,15}$/;
+                if(pattern.test(document.getElementById("passward").value))
+                {
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            function ema()
+            {
+                var pattern=/[\D]@(gmail|yahoo).(in|com)/;
+                if(pattern.test(document.getElementById("email").value))
+                {
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            function numm()
+            {
+                var pattern=/[\D]/;
+                if(pattern.test(document.getElementById("mobile").value)||pattern.test(document.getElementById("age").value))
+                {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            function vern()
+            {
+                var pattern=/[\s]/g;
+                if(pattern.test(document.getElementById("username").value)||pattern.test(document.getElementById("lastname").value)||pattern.test(document.getElementById("firstname").value))
+                {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            function mob()
+            {
+                var pattern=/^[0-9]{10}$/;
+                if(pattern.test(document.getElementById("mobile").value))
+                {
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            function ag()
+            {
+                var pattern=/^[1-9]{1}[0-9]{0,2}$/;
+                if(pattern.test(document.getElementById("age").value))
+                {
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+            function veru()
+            {
+                var pattern=/^[a-zA-Z]{1}[a-zA-Z0-9]{7,15}$/;
+                if(pattern.test(document.getElementById("username").value))
+                {
+                    return false;
+                }
+                else{
+                    return true;
+                }
+            }
+        </script>
+        <style>
+            body{
+                background-color: rgb(17, 203, 236);
+                width: 100%;
+                height: 100%;
+            }
+            #box{
+                position: relative;
+                top: 1%;
+                width: 30vw;
+                height: 80vh;
+                background-color: rgb(9, 191, 241);
+                margin: auto;
+                border-style: solid;
+            }
+            .inp{
+                width: 100%;
+                height: 9%;
+            }
+            input{
+                border-style: solid;
+                text-align: center;
+            }
+            #inpu{
+                position: relative;
+                text-align: center;
+                top: 10%;
+            }
+            #ver{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-around;
+            }
+            #ver input{
+                background-color: rgb(251, 126, 207);
+            border-top-style: dotted;
+                border-radius: 20%;
+                transform: scale(1.5);
+                position: absolute;
+                top: 90%;
+                left: 45%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 align="center" style="color: rgb(0, 0, 0);">BANK VALIDATION FORM</h1>
+        <div id="box">
+            <div id="inpu">
+                <div class="inp">
+                    <input type="text" id="firstname" placeholder="First Name">
+                </div>
+                <div class="inp">
+                    <input type="text" id="lastname" placeholder="Last Name">
+                </div>
+                <div class="inp">
+                    <input type="text" id="email" placeholder="Email ID">
+                </div>
+                <div class="inp">
+                    <input type="text" id="age" placeholder="Age">
+                </div>
+                <div class="inp">
+                    <input type="text" id="mobile" placeholder="Mobile Number">
+                </div>
+                <div class="inp">
+                    <input type="text" id="username" placeholder="Username">
+                </div>
+                <div class="inp">
+                    <input type="password" id="passward" placeholder="Password">
+                </div>
+                <div class="inp">
+                    <input type="Account type" id="Account type" placeholder="Account type">
+                </div>
+                <div class="inp">
+                    <input type="aadhar" id="aadhar" placeholder="aadhar">
+                </div>
+            </div>
+            <div id="ver">
+                <div class="sub">
+                    <input type="submit" name="submit" onclick="verify()">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
